@@ -1,0 +1,67 @@
+/* Responsive overrides. Kept in one place so breakpoints stay consistent. */
+
+/* Tablet — collapse to two rows: stopwatch on top, stats + leaderboard below. */
+@media (max-width: 1024px) {
+  .stage {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "watch watch"
+      "stats board";
+  }
+  .stage > [data-mounted="stopwatch"] {
+    grid-area: watch;
+  }
+  .stage > [data-mounted="stats"] {
+    grid-area: stats;
+  }
+  .stage > [data-mounted="leaderboard"] {
+    grid-area: board;
+  }
+}
+
+/* Mobile — single column, natural order: stopwatch → stats → leaderboard. */
+@media (max-width: 720px) {
+  .stage {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "watch"
+      "stats"
+      "board";
+  }
+  .stats {
+    gap: 10px;
+  }
+}
+
+@media (max-width: 560px) {
+  .topbar {
+    padding: 12px 16px;
+  }
+  .main {
+    padding: 28px 16px 36px;
+    gap: 22px;
+  }
+  .card {
+    padding: 18px;
+  }
+
+  .stat {
+    padding: 14px 16px;
+  }
+  .stat-value {
+    font-size: 24px;
+  }
+
+  .modal-panel {
+    padding: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}

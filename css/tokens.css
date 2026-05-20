@@ -1,0 +1,57 @@
+/* Design tokens — palette, spacing, type, motion.
+   Inspired by the CropCare reference: deep forest-green primary,
+   soft cream-gray canvas, refined typography. */
+:root {
+  /* Palette */
+  --bg: #f6f7f8;
+  --surface: #ffffff;
+  --surface-2: #fbfcfc;
+
+  --border: #e7eaee;
+  --border-strong: #d6dbe1;
+
+  --text: #0f1a14;
+  --text-muted: #5b6470;
+  --text-subtle: #8a93a0;
+
+  --primary: #1f6b3a;
+  --primary-700: #1a5a31;
+  --primary-500: #2a8b4d;
+  --primary-100: #e6f1ea;
+  --primary-50: #f1f8f4;
+
+  --danger: #c83a2c;
+  --danger-100: #fbe7e3;
+  --danger-border: #f4cfc8;
+
+  /* Radii */
+  --r-xl: 18px;
+  --r-lg: 14px;
+  --r-md: 10px;
+  --r-sm: 8px;
+  --r-pill: 999px;
+
+  /* Shadows */
+  --shadow-sm:
+    0 1px 2px rgba(15, 26, 20, 0.04), 0 1px 1px rgba(15, 26, 20, 0.03);
+  --shadow-md:
+    0 1px 2px rgba(15, 26, 20, 0.04), 0 6px 18px rgba(15, 26, 20, 0.05);
+  --shadow-pop:
+    0 1px 2px rgba(15, 26, 20, 0.05), 0 12px 32px rgba(15, 26, 20, 0.08);
+
+  /* Type */
+  --font-sans:
+    "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* Layout */
+  --container: 1180px;
+  --gap: 20px;
+
+  /* Motion */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-1: 140ms;
+  --dur-2: 220ms;
+  --dur-3: 360ms;
+}

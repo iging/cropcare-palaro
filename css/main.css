@@ -1,0 +1,22 @@
+/* Single entry — pulls every CSS module in order.
+   Each import carries a ?v= cache-bust so browsers reliably re-fetch
+   modules after we edit them. Bump CSS_V when you ship a CSS change. */
+@import url("./tokens.css?v=5");
+@import url("./base.css?v=5");
+@import url("./layout.css?v=5");
+
+@import url("./components/pill.css?v=5");
+@import url("./components/badge.css?v=5");
+@import url("./components/card.css?v=5");
+@import url("./components/button.css?v=5");
+@import url("./components/icon-btn.css?v=5");
+@import url("./components/dial.css?v=5");
+@import url("./components/result.css?v=5");
+@import url("./components/stat.css?v=5");
+@import url("./components/leaderboard.css?v=5");
+@import url("./components/form.css?v=5");
+@import url("./components/modal.css?v=5");
+@import url("./components/name-modal.css?v=5");
+@import url("./components/confetti.css?v=5");
+
+@import url("./responsive.css?v=5");

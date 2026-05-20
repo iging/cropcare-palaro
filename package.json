@@ -1,0 +1,11 @@
+{
+  "name": "cropcare-palaro",
+  "version": "1.0.0",
+  "private": true,
+  "description": "CropCare Palaro — precision stopwatch timing game",
+  "scripts": {
+    "start": "node serve.cjs",
+
+    "dev": "node serve.cjs"
+  }
+}

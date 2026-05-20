@@ -1,0 +1,45 @@
+<form class="settings-form" id="settingsForm" novalidate>
+    <div class="field">
+        <label class="field-label" for="inpTargetSec">Target time</label>
+        <div class="input-row">
+            <input class="input" id="inpTargetSec" name="targetSec" type="number" min="1" max="600" step="0.1"
+                value="10" inputmode="decimal" />
+            <span class="input-suffix">seconds</span>
+        </div>
+        <span class="field-hint">
+            Precise time the stopwatch should be stopped at.
+        </span>
+    </div>
+
+    <div class="field">
+        <label class="field-label" for="inpTolerance">Tolerance</label>
+        <div class="input-row">
+            <input class="input" id="inpTolerance" name="tolerance" type="number" min="0" max="500" step="5" value="50"
+                inputmode="numeric" />
+            <span class="input-suffix">ms</span>
+        </div>
+        <span class="field-hint">Lower values demand sharper precision.</span>
+    </div>
+
+    <div class="field">
+        <span class="field-label" id="modeLabel">Display mode</span>
+        <div class="seg" role="radiogroup" aria-labelledby="modeLabel">
+            <button type="button" class="seg-btn is-active" data-mode="visible" role="radio" aria-checked="true">
+                Visible
+            </button>
+            <button type="button" class="seg-btn" data-mode="blind" role="radio" aria-checked="false">
+                Blind
+            </button>
+        </div>
+        <span class="field-hint">
+            Blind mode hides the live time for a tougher challenge.
+        </span>
+    </div>
+
+    <div class="settings-actions">
+        <button class="btn btn-primary" type="submit">Apply settings</button>
+        <button class="btn btn-ghost" type="button" id="btnDefaults">
+            Reset defaults
+        </button>
+    </div>
+</form>

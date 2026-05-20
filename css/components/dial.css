@@ -1,0 +1,192 @@
+/* Stopwatch dial: clean track + ticks + center readout.
+   No progress arc, no tolerance band — the player gets zero hints
+   while the timer runs. Only the result paints the ring. */
+
+/* When the stopwatch card is the tall middle column, vertically center
+   the dial within the available space. */
+.card-hero {
+  justify-content: center;
+}
+.card-hero .dial-wrap {
+  flex: 1;
+}
+.dial-wrap {
+  display: grid;
+  place-items: center;
+  padding: 8px 0 4px;
+}
+
+.dial {
+  position: relative;
+  width: min(420px, 100%);
+  aspect-ratio: 1 / 1;
+}
+
+.dial-svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg); /* tick #0 anchors at 12 o'clock */
+  overflow: visible;
+}
+
+.ring-track {
+  fill: none;
+  stroke: #eef0f2;
+  stroke-width: 10;
+  transition: stroke var(--dur-3) var(--ease);
+}
+
+/* Result ring sits over the track, fades in only on win/lose. */
+.ring-result {
+  fill: none;
+  stroke: var(--primary);
+  stroke-width: 12;
+  stroke-linecap: round;
+  opacity: 0;
+  transition:
+    opacity var(--dur-3) var(--ease),
+    stroke var(--dur-3) var(--ease);
+}
+
+.dial[data-phase="won"] .ring-result {
+  opacity: 1;
+  stroke: var(--primary);
+  filter: drop-shadow(0 0 12px rgba(31, 107, 58, 0.45));
+  animation: dial-pop var(--dur-3) var(--ease);
+}
+
+.dial[data-phase="lost"] .ring-result {
+  opacity: 1;
+  stroke: var(--danger);
+  filter: drop-shadow(0 0 12px rgba(200, 58, 44, 0.4));
+  animation: dial-pop var(--dur-3) var(--ease);
+}
+
+/* Subtle running indicator: track gets a breathing tint, no progress info. */
+.dial[data-phase="running"] .ring-track {
+  stroke: #e2e7ec;
+  animation: track-breath 1.6s ease-in-out infinite;
+}
+
+@keyframes dial-pop {
+  0% {
+    transform: scale(0.97);
+  }
+  60% {
+    transform: scale(1.02);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes track-breath {
+  0%,
+  100% {
+    stroke-opacity: 1;
+  }
+  50% {
+    stroke-opacity: 0.55;
+  }
+}
+
+/* Tick marks */
+.ring-ticks line {
+  stroke: #c9cfd6;
+  stroke-width: 2;
+  stroke-linecap: round;
+  transition: stroke var(--dur-3) var(--ease);
+}
+.ring-ticks line.major {
+  stroke: var(--text-muted);
+  stroke-width: 2.5;
+}
+
+.dial[data-phase="won"] .ring-ticks line {
+  stroke: rgba(31, 107, 58, 0.45);
+}
+.dial[data-phase="won"] .ring-ticks line.major {
+  stroke: var(--primary);
+}
+.dial[data-phase="lost"] .ring-ticks line {
+  stroke: rgba(200, 58, 44, 0.4);
+}
+.dial[data-phase="lost"] .ring-ticks line.major {
+  stroke: var(--danger);
+}
+
+/* Center readout */
+.dial-center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  pointer-events: none;
+}
+
+.time-display {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  font-size: clamp(36px, 7vw, 56px);
+  letter-spacing: -0.02em;
+  color: var(--text);
+  line-height: 1;
+  transition: color var(--dur-3) var(--ease);
+}
+
+.dial[data-phase="won"] .time-display {
+  color: var(--primary-700);
+}
+.dial[data-phase="lost"] .time-display {
+  color: var(--danger);
+}
+
+.time-ms {
+  color: var(--text-muted);
+  font-size: 0.55em;
+  margin-left: 2px;
+  font-weight: 600;
+}
+
+.dial.is-blind .time-display {
+  filter: blur(10px);
+  opacity: 0.55;
+  transition: filter var(--dur-2) var(--ease);
+}
+
+/* In blind mode, also hide the live ticks of the readout while running. */
+.dial.is-blind[data-phase="running"] .time-display {
+  filter: blur(14px);
+}
+.dial.is-blind[data-phase="won"] .time-display,
+.dial.is-blind[data-phase="lost"] .time-display {
+  filter: none;
+  opacity: 1;
+}
+
+.time-target {
+  margin-top: 12px;
+  font-size: 12px;
+  color: var(--text-muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.time-target-label {
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-weight: 600;
+  font-size: 10.5px;
+}
+
+.time-target strong {
+  font-family: var(--font-mono);
+  color: var(--text);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}

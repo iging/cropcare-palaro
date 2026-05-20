@@ -1,0 +1,144 @@
+/* Buttons: default, primary, ghost, link, danger (stop). */
+.controls {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  --b-bg: var(--surface);
+  --b-fg: var(--text);
+  --b-bd: var(--border-strong);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 42px;
+  min-width: 116px;
+  padding: 0 18px;
+  border-radius: var(--r-md);
+  background: var(--b-bg);
+  color: var(--b-fg);
+  border: 1px solid var(--b-bd);
+  font-weight: 600;
+  font-size: 13.5px;
+  letter-spacing: 0.005em;
+  transition:
+    transform var(--dur-1) var(--ease),
+    background var(--dur-1) var(--ease),
+    border-color var(--dur-1) var(--ease),
+    box-shadow var(--dur-1) var(--ease),
+    color var(--dur-1) var(--ease);
+  box-shadow: var(--shadow-sm);
+  user-select: none;
+  white-space: nowrap;
+}
+
+/* Icon slot inside a button — ensures the SVG aligns with the label. */
+.btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+}
+
+.btn:hover {
+  background: #fafbfb;
+}
+.btn:active {
+  transform: translateY(1px);
+}
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Primary — green Start / Restart */
+.btn-primary {
+  --b-bg: var(--primary);
+  --b-fg: #fff;
+  --b-bd: var(--primary-700);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.2) inset,
+    0 1px 2px rgba(31, 107, 58, 0.35),
+    0 6px 16px rgba(31, 107, 58, 0.18);
+}
+.btn-primary:hover {
+  background: var(--primary-700);
+}
+
+/* Stop state — primary morphs to red so the action reads as "halt now". */
+.btn-primary.is-stop {
+  --b-bg: var(--danger);
+  --b-fg: #fff;
+  --b-bd: #a52f23;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.2) inset,
+    0 1px 2px rgba(200, 58, 44, 0.4),
+    0 6px 18px rgba(200, 58, 44, 0.25);
+  animation: stopPulse 1.6s var(--ease) infinite;
+}
+.btn-primary.is-stop:hover {
+  background: #a52f23;
+}
+
+@keyframes stopPulse {
+  0%,
+  100% {
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.2) inset,
+      0 1px 2px rgba(200, 58, 44, 0.4),
+      0 0 0 0 rgba(200, 58, 44, 0.35);
+  }
+  50% {
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.2) inset,
+      0 1px 2px rgba(200, 58, 44, 0.4),
+      0 0 0 10px rgba(200, 58, 44, 0);
+  }
+}
+
+.btn-ghost {
+  --b-bg: transparent;
+  --b-fg: var(--text-muted);
+  --b-bd: transparent;
+  box-shadow: none;
+  min-width: auto;
+}
+.btn-ghost:hover {
+  background: var(--surface-2);
+  --b-bd: var(--border);
+}
+
+/* Tiny inline link-style button — used for "Reset attempts". */
+.btn-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border: 0;
+  background: transparent;
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 12.5px;
+  letter-spacing: 0.01em;
+  border-radius: var(--r-sm);
+  transition:
+    background var(--dur-1) var(--ease),
+    color var(--dur-1) var(--ease);
+}
+.btn-link:hover {
+  background: var(--surface-2);
+  color: var(--text);
+}
+.btn-link:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}

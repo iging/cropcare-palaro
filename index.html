@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <title>CropCare Palaro — Precision Timing Game</title>
+    <meta name="description"
+        content="A precision stopwatch game from CropCare. Stop the timer at the exact target moment to win." />
+    <meta name="theme-color" content="#1f6b3a" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" />
+
+    <link rel="stylesheet" href="css/main.css?v=5" />
+</head>
+
+<body>
+    <!--
+      Shell renders mount points; partials/* are injected by js/partials.js,
+      then individual feature modules wire themselves to live elements.
+    -->
+    <div class="app">
+        <div data-mount="topbar"></div>
+
+        <main class="main" role="main">
+            <div data-mount="hero"></div>
+
+            <section class="stage">
+                <div data-mount="stats"></div>
+                <div data-mount="stopwatch"></div>
+                <div data-mount="leaderboard"></div>
+            </section>
+
+            <div data-mount="footer"></div>
+        </main>
+
+        <!-- Settings modal lives at the body level so it can overlay everything. -->
+        <div data-mount="modal"></div>
+
+        <!-- Leaderboard name-entry modal. -->
+        <div data-mount="nameModal"></div>
+
+        <!-- Confetti canvas overlay; created lazily by js/confetti.js -->
+    </div>
+
+    <script type="module" src="js/main.js?v=6"></script>
+</body>
+
+</html>

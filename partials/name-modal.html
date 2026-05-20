@@ -1,0 +1,73 @@
+<div class="modal" id="nameModal" hidden aria-hidden="true" aria-labelledby="nameModalTitle" role="dialog"
+    aria-modal="true">
+    <div class="modal-backdrop" data-modal-close></div>
+    <div class="modal-panel" role="document">
+        <header class="modal-head">
+            <div class="name-modal-head" id="nameModalHead">
+                <span class="name-modal-eyebrow" id="nameModalEyebrow">
+                    Leaderboard entry
+                </span>
+                <h2 class="modal-title" id="nameModalTitle">You made the board.</h2>
+                <p class="modal-sub" id="nameModalSub">
+                    Add your name to claim the spot.
+                </p>
+            </div>
+            <button class="icon-btn" type="button" data-modal-close aria-label="Skip leaderboard entry">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M18 6 6 18" />
+                    <path d="m6 6 12 12" />
+                </svg>
+            </button>
+        </header>
+
+        <div class="name-modal-summary" id="nameModalSummary">
+            <div class="nm-stat">
+                <span class="nm-stat-label">Stopped at</span>
+                <strong class="nm-stat-value" id="nmElapsed">—</strong>
+            </div>
+            <div class="nm-stat">
+                <span class="nm-stat-label">Target</span>
+                <strong class="nm-stat-value" id="nmTarget">—</strong>
+            </div>
+            <div class="nm-stat">
+                <span class="nm-stat-label">Delta</span>
+                <strong class="nm-stat-value" id="nmDelta">—</strong>
+            </div>
+            <div class="nm-stat">
+                <span class="nm-stat-label">Projected rank</span>
+                <strong class="nm-stat-value" id="nmRank">—</strong>
+            </div>
+        </div>
+
+        <form class="settings-form" id="nameModalForm" novalidate>
+            <div class="field">
+                <label class="field-label" for="nmName">Player name</label>
+                <div class="input-row">
+                    <input class="input" id="nmName" name="playerName" type="text" maxlength="20" autocomplete="off"
+                        placeholder="e.g. Maria" required />
+                </div>
+                <span class="field-hint">Up to 20 characters.</span>
+            </div>
+
+            <div class="field">
+                <label class="field-label" for="nmLocation">
+                    Team or school <span class="field-optional">(optional)</span>
+                </label>
+                <div class="input-row">
+                    <input class="input" id="nmLocation" name="location" type="text" maxlength="32" autocomplete="off"
+                        placeholder="e.g. Brgy. San Isidro" />
+                </div>
+            </div>
+
+            <div class="settings-actions">
+                <button class="btn btn-primary" type="submit">
+                    Save to leaderboard
+                </button>
+                <button class="btn btn-ghost" type="button" data-modal-close>
+                    Skip
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

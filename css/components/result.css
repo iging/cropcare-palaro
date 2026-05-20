@@ -1,0 +1,70 @@
+/* Win/lose banner shown under the stopwatch. */
+.result {
+  margin-top: 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  border-radius: var(--r-lg);
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  animation: rise var(--dur-3) var(--ease);
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.result-icon {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: var(--primary-50);
+  color: var(--primary-700);
+  border: 1px solid var(--primary-100);
+  flex: none;
+}
+.result-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.result.is-win {
+  background: var(--primary-50);
+  border-color: var(--primary-100);
+}
+
+.result.is-lose {
+  background: var(--danger-100);
+  border-color: var(--danger-border);
+}
+.result.is-lose .result-icon {
+  background: #fff;
+  color: var(--danger);
+  border-color: var(--danger-border);
+}
+
+.result-title {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.result-msg {
+  margin-top: 2px;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+.result-msg strong {
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-weight: 700;
+}

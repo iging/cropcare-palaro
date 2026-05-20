@@ -1,0 +1,58 @@
+<article class="card card-hero" aria-labelledby="swTitle">
+    <header class="card-head">
+        <div>
+            <h2 class="card-title" id="swTitle">Stopwatch</h2>
+            <p class="card-sub">No hints. Trust your sense of time.</p>
+        </div>
+        <span class="badge" id="attemptBadge">Attempt 1</span>
+    </header>
+
+    <div class="dial-wrap">
+        <div class="dial" id="dial" data-phase="idle">
+            <svg class="dial-svg" viewBox="0 0 220 220" role="img" aria-label="Stopwatch dial">
+                <circle class="ring-track" cx="110" cy="110" r="96" />
+                <circle class="ring-result" id="ringResult" cx="110" cy="110" r="96" />
+                <g class="ring-ticks" id="ringTicks"></g>
+            </svg>
+
+            <div class="dial-center">
+                <div class="time-display" id="timeDisplay" aria-live="off">
+                    00:00<span class="time-ms">.000</span>
+                </div>
+                <div class="time-target">
+                    <span class="time-target-label">Target</span>
+                    <strong id="targetLabel">00:10.000</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="controls" role="group" aria-label="Stopwatch controls">
+        <button class="btn btn-primary" id="btnPrimary" type="button" aria-label="Start stopwatch">
+            <span class="btn-icon" id="btnPrimaryIcon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                    <path d="M8 5.14v13.72a1 1 0 0 0 1.55.83l10.3-6.86a1 1 0 0 0 0-1.66L9.55 4.31A1 1 0 0 0 8 5.14Z" />
+                </svg>
+            </span>
+            <span id="btnPrimaryLabel">Start</span>
+        </button>
+        <button class="btn btn-ghost" id="btnReset" type="button" aria-label="Reset timer" disabled>
+            <span class="btn-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 12a9 9 0 1 0 3-6.7" />
+                    <path d="M3 4v5h5" />
+                </svg>
+            </span>
+            Reset
+        </button>
+    </div>
+
+    <div class="result" id="result" hidden>
+        <span class="result-icon" id="resultIcon" aria-hidden="true"></span>
+        <div class="result-body">
+            <h3 class="result-title" id="resultTitle"></h3>
+            <p class="result-msg" id="resultMsg"></p>
+        </div>
+    </div>
+</article>
